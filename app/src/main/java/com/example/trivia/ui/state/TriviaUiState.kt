@@ -8,5 +8,7 @@ data class TriviaUiState(
     val totalQuestions: Int = 0,
     val lastAnswerCorrect: Boolean? = null,
     val isComplete: Boolean = false,
-    val score: Int = 0
+    val score: Int = 0,
+    val isLoading: Boolean = false,
+    val error: String? = null
 )

@@ -44,14 +44,10 @@ android {
     }
 }
 
-//detekt {
-//   buildUponDefaultConfig = true
-//   allRules = false
-//   config = files("$rootDir/config/detekt/detekt.yml")
-//}
 detekt {
     toolVersion = "1.23.8"
     config.setFrom(file("../config/detekt/detekt.yml"))
+    baseline = file("$rootDir/config/detekt/baseline.xml")
     buildUponDefaultConfig = true
     autoCorrect = true
 }
@@ -74,13 +70,12 @@ dependencies {
     detektPlugins(libs.detekt.formatting)
     detektPlugins(libs.detekt.compose)
 
-
     testImplementation(libs.junit)
     testImplementation(libs.mockito.core)
     testImplementation(libs.mockito.kotlin)
     testImplementation(libs.androidx.core.testing)
     testImplementation(libs.kotlinx.coroutines.test)
-    
+
     // Testing - Android tests
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -90,7 +85,7 @@ dependencies {
     androidTestImplementation(libs.mockito.kotlin)
     androidTestImplementation(libs.hilt.android.testing)
     kspAndroidTest(libs.hilt.android.compiler)
-    
+
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
 }

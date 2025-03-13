@@ -1,5 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" ?>
 <SmellBaseline>
   <ManuallySuppressedIssues/>
-  <CurrentIssues/>
+  <CurrentIssues>
+    <ID>CyclomaticComplexMethod:TriviaQuestion.kt$TriviaQuestion$fun validateAnswer(answer: Any): Boolean</ID>
+    <ID>ReturnCount:TriviaQuestion.kt$TriviaQuestion$fun validateAnswer(answer: Any): Boolean</ID>
+    <ID>SwallowedException:TriviaQuestion.kt$TriviaQuestion$e: ClassCastException</ID>
+  </CurrentIssues>
 </SmellBaseline>

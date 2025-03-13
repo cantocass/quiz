@@ -10,7 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.trivia.ui.TriviaScreen
+import com.example.trivia.ui.TriviaScreenWithViewModel
 import com.example.trivia.ui.TriviaViewModel
 import com.example.trivia.ui.theme.QuizAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             QuizAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    TriviaScreen(
+                    TriviaScreenWithViewModel(
                         viewModel = viewModel,
                         modifier = Modifier
                             .padding(innerPadding)

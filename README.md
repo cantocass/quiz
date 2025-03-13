@@ -12,6 +12,7 @@ QuizApp is a comprehensive trivia application that supports multiple question ty
 - **MVVM Pattern**: ViewModel-based UI state management
 - **Kotlin Coroutines & Flow**: For asynchronous operations and reactive data streams
 - **Unit Testing**: Comprehensive test coverage for domain logic and UI components
+- **Detekt Linting**: Integrates detekt and ktlint for ensuring code style and formatting, with a baseline file acknowledging issues needing to be addressed
 
 ## App Structure
 
@@ -28,6 +29,10 @@ com.example.trivia/
 │   ├── state/       # UI state definitions
 │   └── theme/       # App theming and styling
 ```
+
+## Improvements to Make
+1. **Theming** The UX/UI of the app is bland, would greatly benefit from a design overhaul
+2. **Validation** For open ended questions, the existing validation is hard to understand and will not handle many edge cases.
 
 ## Key Components
 

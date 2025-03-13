@@ -11,7 +11,7 @@ complexity:
     threshold: 60
   LongParameterList:
     constructorThreshold: 7
-    functionThreshold: 6
+    functionThreshold: 7
   TooManyFunctions:
     thresholdInFiles: 11
     thresholdInObjects: 11
@@ -33,6 +33,8 @@ style:
     maxLineLength: 120
   ReturnCount:
     max: 3
+  UnusedPrivateMember:
+    ignoreAnnotated: ['Preview']
 
 formatting:
   android: true
@@ -68,6 +70,7 @@ naming:
     propertyPattern: '[A-Za-z][A-Za-z0-9]*'
     privatePropertyPattern: '_?[A-Za-z][A-Za-z0-9]*'
   FunctionNaming:
+    ignoreAnnotated: [ 'Composable' ]
     functionPattern: '[a-z][a-zA-Z0-9]*'
   ClassNaming:
     classPattern: '[A-Z][a-zA-Z0-9]*'

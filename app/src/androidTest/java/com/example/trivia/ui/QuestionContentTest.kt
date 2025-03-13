@@ -11,7 +11,7 @@ class QuestionContentTest {
 
     @get:Rule
     val composeTestRule = createComposeRule()
-    
+
     @Test
     fun multipleChoiceQuestionDisplaysAllOptions() {
         // Arrange
@@ -21,16 +21,16 @@ class QuestionContentTest {
             alternatives = listOf("London", "Paris", "Berlin", "Madrid"),
             correctAnswer = "Paris"
         )
-        
+
         // Act
         composeTestRule.setContent {
             QuestionContent(
                 question = question,
-                onAnswerSubmitted = {},
+                onSubmitAnswer = {},
                 enabled = true
             )
         }
-        
+
         // Assert
         composeTestRule.onNodeWithText("Which is the capital of France?").assertIsDisplayed()
         composeTestRule.onNodeWithText("London").assertIsDisplayed()
@@ -38,7 +38,7 @@ class QuestionContentTest {
         composeTestRule.onNodeWithText("Berlin").assertIsDisplayed()
         composeTestRule.onNodeWithText("Madrid").assertIsDisplayed()
     }
-    
+
     @Test
     fun trueFalseQuestionDisplaysBothOptions() {
         // Arrange
@@ -47,22 +47,22 @@ class QuestionContentTest {
             stem = "Paris is the capital of France",
             correctAnswer = true
         )
-        
+
         // Act
         composeTestRule.setContent {
             QuestionContent(
                 question = question,
-                onAnswerSubmitted = {},
+                onSubmitAnswer = {},
                 enabled = true
             )
         }
-        
+
         // Assert
         composeTestRule.onNodeWithText("Paris is the capital of France").assertIsDisplayed()
         composeTestRule.onNodeWithText("True").assertIsDisplayed()
         composeTestRule.onNodeWithText("False").assertIsDisplayed()
     }
-    
+
     @Test
     fun disabledQuestionHasDisabledOptions() {
         // Arrange
@@ -72,21 +72,21 @@ class QuestionContentTest {
             alternatives = listOf("London", "Paris", "Berlin", "Madrid"),
             correctAnswer = "Paris"
         )
-        
+
         // Act
         composeTestRule.setContent {
             QuestionContent(
                 question = question,
-                onAnswerSubmitted = {},
+                onSubmitAnswer = {},
                 enabled = false
             )
         }
-        
+
         // Assert
         composeTestRule.onNodeWithText("London").assertIsNotEnabled()
         composeTestRule.onNodeWithText("Paris").assertIsNotEnabled()
     }
-    
+
     @Test
     fun clickingOptionCallsOnAnswerSubmitted() {
         // Arrange
@@ -97,18 +97,18 @@ class QuestionContentTest {
             correctAnswer = "Paris"
         )
         var answerSubmitted = false
-        
+
         // Act
         composeTestRule.setContent {
             QuestionContent(
                 question = question,
-                onAnswerSubmitted = { answerSubmitted = true },
+                onSubmitAnswer = { answerSubmitted = true },
                 enabled = true
             )
         }
-        
+
         composeTestRule.onNodeWithText("Paris").performClick()
-        
+
         // Assert
         assert(answerSubmitted)
     }
@@ -122,18 +122,19 @@ class QuestionContentTest {
             correctAnswer = "Gradle",
             exactMatch = true
         )
-        
+
         // Act
         composeTestRule.setContent {
             QuestionContent(
                 question = question,
-                onAnswerSubmitted = {},
+                onSubmitAnswer = {},
                 enabled = true
             )
         }
-        
+
         // Assert
-        composeTestRule.onNodeWithText("What is the name of the Android build system tool that replaced Ant?").assertIsDisplayed()
+        composeTestRule.onNodeWithText("What is the name of the Android build system tool that replaced Ant?")
+            .assertIsDisplayed()
         composeTestRule.onNodeWithText("Your answer").assertIsDisplayed()
         composeTestRule.onNodeWithText("100 characters remaining").assertIsDisplayed()
     }

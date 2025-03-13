@@ -9,23 +9,10 @@ import com.example.trivia.ui.state.TriviaUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
-// UI State
-data class TriviaUiState(
-    val currentQuestion: TriviaQuestion? = null,
-    val currentQuestionIndex: Int = 0,
-    val totalQuestions: Int = 0,
-    val lastAnswerCorrect: Boolean? = null,
-    val isComplete: Boolean = false,
-    val score: Int = 0,
-    val isLoading: Boolean = false,
-    val error: String? = null
-)
 
 // ViewModel
 @HiltViewModel
