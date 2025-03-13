@@ -6,8 +6,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -70,30 +68,6 @@ fun TriviaScreen(
             }
         }
     }
-}
-
-/**
- * Wrapper composable that connects the TriviaScreen with a ViewModel
- * @param viewModel The view model
- * @param modifier A modifier for the composable
- */
-@Composable
-fun TriviaScreenWithViewModel(
-    viewModel: TriviaViewModel,
-    modifier: Modifier = Modifier
-) {
-    val uiState by viewModel.uiState.collectAsState()
-
-    TriviaScreen(
-        uiState = uiState,
-        onAnswerSubmit = { questionId, answer ->
-            viewModel.submitAnswer(questionId, answer)
-        },
-        onNextQuestion = {
-            viewModel.moveToNextQuestion()
-        },
-        modifier = modifier
-    )
 }
 
 @Preview

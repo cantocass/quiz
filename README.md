@@ -31,8 +31,9 @@ com.example.trivia/
 ```
 
 ## Improvements to Make
-1. **Theming** The UX/UI of the app is bland, would greatly benefit from a design overhaul
+1. **Theming** The UX/UI of the app is bland, would greatly benefit from a design overhaul.
 2. **Validation** For open ended questions, the existing validation is hard to understand and will not handle many edge cases.
+3. **Navigation** Even though there's currently no other screens to navigate to, pressing the back button at any point will close the app which is jarring.
 
 ## Key Components
 

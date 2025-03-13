@@ -1,7 +1,10 @@
 package com.example.trivia.ui
 
-import androidx.compose.ui.test.*
+import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import com.example.trivia.domain.model.TriviaQuestion
 import com.example.trivia.ui.components.QuestionContent
 import org.junit.Rule
